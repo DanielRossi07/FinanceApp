@@ -13,7 +13,7 @@
             Validate();
         }
 
-        private void Validate()
+        public override void Validate()
         {
             DomainValidation.NotNullOrEmpty(Name, nameof(Name));
             DomainValidation.MinLength(Name, 2, nameof(Name));

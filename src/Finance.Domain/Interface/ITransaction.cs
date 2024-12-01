@@ -1,13 +1,15 @@
 ﻿using Finance.Domain.Entity;
+using Finance.Domain.Enum;
 
 namespace Finance.Domain.Interface
 {
-    public interface ITransaction
+    public interface ITransaction : IEntity
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public BankAccount BankAccount { get; set; }
-        public Guid UserId { get; set; }
-        public DateTime CreatedAt { get; set; }
+        string Description { get; set; }
+        decimal Value { get; set; }
+        TransactionType Type { get; set; }
+        TransactionSourceType? SourceType { get; set; }
+        ITransactionSource? Source { get; set; }
+        TransactionCategory? Category { get; set; }
     }
 }
