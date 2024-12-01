@@ -3,14 +3,13 @@
     public class User : SeedWork.Entity
     {
         public string Name { get; set; }
-        public Credential Credential { get; set; }
-        public List<Transaction> Transactions { get; set; }
-        public List<SavingGoal> SavingGoals { get; set; }
-        public List<ExpenseGoal> ExpenseGoals { get; set; }
-        public List<BankAccount> BankAccounts { get; set; }
-        public List<RecurrentTransaction> RecurrentTransactions { get; set; }
-        public List<SplitTransaction> SplitTransactions { get; set; }
-        public List<InstallmentPlan> InstallmentPlans { get; set; }
+        public List<Transaction> Transactions => new List<Transaction>();
+        public List<SavingGoal> SavingGoals => new List<SavingGoal>();
+        public List<ExpenseGoal> ExpenseGoals => new List<ExpenseGoal>();
+        public List<BankAccount> BankAccounts => new List<BankAccount>();
+        public List<RecurrentTransaction> RecurrentTransactions => new List<RecurrentTransaction>();
+        public List<SplitTransaction> SplitTransactions => new List<SplitTransaction>();
+        public List<InstallmentPlan> InstallmentPlans => new List<InstallmentPlan>();
 
         public User(string name, Guid userId) : base(userId)
         {
