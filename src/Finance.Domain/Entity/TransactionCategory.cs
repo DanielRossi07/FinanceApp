@@ -1,6 +1,8 @@
-﻿namespace Finance.Domain.Entity
+﻿using Finance.Domain.SeedWork;
+
+namespace Finance.Domain.Entity
 {
-    public class TransactionCategory : SeedWork.Entity
+    public class TransactionCategory : AggregateRoot
     {
         public string Name { get; set; }
         public string Description { get; set; }
