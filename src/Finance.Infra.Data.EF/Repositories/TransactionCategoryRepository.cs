@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Finance.Infra.Data.EF.Repositories
 {
-    internal class TransactionCategoryRepository : ITransactionCategoryRepository
+    public class TransactionCategoryRepository : ITransactionCategoryRepository
     {
         private readonly FinanceDbContext _context;
         private DbSet<TransactionCategory> _categories => _context.Set<TransactionCategory>();

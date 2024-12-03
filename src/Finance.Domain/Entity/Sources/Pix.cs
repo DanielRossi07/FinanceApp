@@ -1,8 +1,9 @@
 ﻿using Finance.Domain.Interface;
+using Finance.Domain.SeedWork;
 
 namespace Finance.Domain.Entity
 {
-    public class Pix : SeedWork.Entity, ITransactionSource
+    public class Pix : AggregateRoot, ITransactionSource
     {
         public string Name { get; set; }
         public BankAccount BankAccount { get; set; }
@@ -15,7 +16,7 @@ namespace Finance.Domain.Entity
             Validate();
         }
 
-        private void Validate()
+        public override void Validate()
         {
             DomainValidation.NotNullOrEmpty(Name, nameof(Name));
             DomainValidation.MinLength(Name, 2, nameof(Name));

@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "XE95kw6qQLdlwIg0t5NPJHCycaPZixZi2zHwjBgRmJ4=",
+  "Hash": "8Kew892EQ9BCJ5WtaCflxDmh7pU41BcnLPgwXD9R784=",
   "Source": "Finance.Application",
   "BasePath": "_content/Finance.Application",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Programming\\FinanceApp\\src\\Finance.Domain\\Finance.Domain.csproj",
+      "Version": 2,
+      "Source": "Finance.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }
