@@ -17,7 +17,7 @@ namespace Finance.UnitTests.Domain.Entity.TransactionCategory
             validTransactionCategory.Id.Should().NotBeEmpty();
             validTransactionCategory.Name.Should().Be("Uber");
             validTransactionCategory.Description.Should().Be("Todos os gastos com aplicativos de transporte");
-            validTransactionCategory.UserId.Should().Be(123);
+            validTransactionCategory.UserId.Should().Be(validTransactionCategory.Id);
         }
 
         [Theory(DisplayName = nameof(InstantiateErrorWhenNameIsNull))]
@@ -82,7 +82,7 @@ namespace Finance.UnitTests.Domain.Entity.TransactionCategory
 
         private DomainEntity.TransactionCategory GetCategory()
         {
-            return new DomainEntity.TransactionCategory("Uber", "Todos os gastos com aplicativos de transporte", 123);
+            return new DomainEntity.TransactionCategory("Uber", "Todos os gastos com aplicativos de transporte", Guid.NewGuid());
         }
     }
 }

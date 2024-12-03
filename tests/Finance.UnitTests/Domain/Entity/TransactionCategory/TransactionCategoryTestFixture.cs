@@ -30,9 +30,9 @@ namespace Finance.UnitTests.Domain.Entity.TransactionCategory
             return categoryDescription;
         }
 
-        public long GetValidTransactionCategoryId()
+        public Guid GetValidTransactionCategoryId()
         {
-            return GetRandomLong();
+            return Guid.NewGuid();
         }
 
         public DomainEntity.TransactionCategory GetValidTransactionCategory()
