@@ -23,8 +23,8 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "publishAllPorts": true,
-      "useSSL": true
-      //"DockerfileRunArguments":  "--network service-finance"
+      "useSSL": true,
+      "DockerfileRunArguments":  "--network service_finance"
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",
