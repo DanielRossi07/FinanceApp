@@ -1,0 +1,15 @@
+services:
+  finance.db:
+    container_name: appdb
+    hostname: appdb
+    image: mysql
+    ports:
+      - 3306:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: P@ssword.2024
+
+networks:
+  default:
+    name: service_finance  
+    external: true
+  

@@ -15,7 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.UnitTests", "tests\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Infra.Data.EF", "src\Finance.Infra.Data.EF\Finance.Infra.Data.EF.csproj", "{7294AF83-9A66-4642-8721-30C85A9B0314}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.API", "src\Finance.API\Finance.API.csproj", "{CCB9827F-E145-4CC0-A7E0-B8C8DDB0141E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.API", "src\Finance.API\Finance.API.csproj", "{CCB9827F-E145-4CC0-A7E0-B8C8DDB0141E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "env", "env", "{6959142A-622A-4327-A2D5-F9F518458009}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
