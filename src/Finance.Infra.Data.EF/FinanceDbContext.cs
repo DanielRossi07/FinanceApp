@@ -7,6 +7,7 @@ namespace Finance.Infra.Data.EF
     public class FinanceDbContext : DbContext
     {
         public DbSet<TransactionCategory> TransactionCategories => Set<TransactionCategory>();
+        public DbSet<BankAccount> BankAccount => Set<BankAccount>();
         public FinanceDbContext(DbContextOptions<FinanceDbContext> options) : base(options)
         {
         }
@@ -14,6 +15,7 @@ namespace Finance.Infra.Data.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new TransactionCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new BankAccountConfiguration());
         }
     }
 }

@@ -1,10 +1,19 @@
-﻿namespace Finance.Domain.Entity
+﻿using Finance.Domain.SeedWork;
+
+namespace Finance.Domain.Entity
 {
-    public class BankAccount : SeedWork.Entity
+    public class BankAccount : AggregateRoot
     {
         public string Name { get; set; }
 
         public BankAccount(string name, Guid userId) : base(userId)
+        {
+            Name = name;
+
+            Validate();
+        }
+
+        public void Update(string name)
         {
             Name = name;
 

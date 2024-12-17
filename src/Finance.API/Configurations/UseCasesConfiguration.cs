@@ -20,6 +20,7 @@ namespace Finance.API.Configurations
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddTransient<ITransactionCategoryRepository, TransactionCategoryRepository>();
+            services.AddTransient<IBankAccountRepository, BankAccountRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }
