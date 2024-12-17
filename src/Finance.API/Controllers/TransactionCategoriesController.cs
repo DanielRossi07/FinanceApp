@@ -1,3 +1,4 @@
+using Finance.API.ApiModels.TransactionCategory;
 using Finance.Application.UseCases.TransactionCategory;
 using Finance.Application.UseCases.TransactionCategory.Common;
 using MediatR;
@@ -27,6 +28,27 @@ namespace Finance.API.Controllers
                 new { output.Id }, 
                 output
             );
+        }
+
+        [HttpGet("{id:guid}")]
+        [ProducesResponseType(typeof(TransactionCategoryModelOutput), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            var output = await _mediator.Send(new GetTransactionCategoryInput(id), cancellationToken);
+            return Ok(output);
+        }
+
+        [HttpGet("{id:guid}")]
+        [ProducesResponseType(typeof(TransactionCategoryModelOutput), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status422UnprocessableEntity)]
+        public async Task<IActionResult> Update([FromBody] UpdateTransactionCategoryApiInput apiInput, [FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            var input = new UpdateTransactionCategoryInput(id, apiInput.Name, apiInput.Description);
+
+            var output = await _mediator.Send(input, cancellationToken);
+            return Ok(output);
         }
     }
 }

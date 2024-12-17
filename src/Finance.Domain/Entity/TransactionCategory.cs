@@ -15,6 +15,14 @@ namespace Finance.Domain.Entity
             Validate();
         }
 
+        public void Update(string name, string description)
+        {
+            Name = name;
+            Description = description;
+
+            Validate();
+        }
+
         public override void Validate()
         {
             DomainValidation.NotNullOrEmpty(Name, nameof(Name));
