@@ -11,7 +11,7 @@ namespace Finance.Application.UseCases.TransactionCategory
         public Guid UserId { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        public UpdateTransactionCategoryInput(Guid id, string name, string description)
+        public UpdateTransactionCategoryInput(Guid id, string name, string description = "")
         {
             Id = id;
             Name = name;

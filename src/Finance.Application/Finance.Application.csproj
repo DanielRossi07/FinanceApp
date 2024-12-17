@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="UseCases\TransactionCategory\Delete\" />
-    <Folder Include="UseCases\TransactionCategory\Update\" />
   </ItemGroup>
 
   <ItemGroup>
