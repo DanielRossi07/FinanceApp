@@ -1,5 +1,6 @@
 ﻿using Finance.Domain.Enum;
 using Finance.Domain.Interface;
+using Finance.Domain.SeedWork;
 
 namespace Finance.Domain.Entity
 {
@@ -9,7 +10,7 @@ namespace Finance.Domain.Entity
         public decimal Value { get; set; }
         public TransactionType Type { get; set; }
         public TransactionSourceType? SourceType { get; set; }
-        public ITransactionSource? Source { get; set; }
+        public TransactionSource? Source { get; set; }
         public TransactionCategory? Category { get; set; }
         public List<SplitTransaction> SplitTransactions { get; set; }
 
@@ -17,8 +18,8 @@ namespace Finance.Domain.Entity
             string description, 
             decimal value, 
             TransactionType type, 
-            TransactionSourceType sourceType, 
-            ITransactionSource source,
+            TransactionSourceType sourceType,
+            TransactionSource source,
             TransactionCategory category,
             List<SplitTransaction> splitTransactions,
             Guid userId)

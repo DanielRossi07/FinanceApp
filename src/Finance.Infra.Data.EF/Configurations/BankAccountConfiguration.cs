@@ -8,6 +8,8 @@ namespace Finance.Infra.Data.EF.Configurations
     {
         public void Configure(EntityTypeBuilder<BankAccount> builder)
         {
+            builder.ToTable("BankAccount");
+
             builder.HasKey(bankAccount => bankAccount.Id);
 
             // Navigation

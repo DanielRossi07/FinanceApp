@@ -1,18 +1,12 @@
-﻿using Finance.Domain.Interface;
+﻿using Finance.Domain.Enum;
 using Finance.Domain.SeedWork;
 
 namespace Finance.Domain.Entity
 {
-    public class Pix : AggregateRoot, ITransactionSource
+    public class Pix : TransactionSource
     {
-        public string Name { get; set; }
-        public BankAccount BankAccount { get; set; }
-
-        public Pix(string name, BankAccount bankAccount, Guid userId) : base(userId)
+        public Pix(string name, Guid bankAccountId, Guid userId) : base(name, bankAccountId, TransactionSourceType.Pix, userId)
         {
-            Name = name;
-            BankAccount = bankAccount;
-
             Validate();
         }
 

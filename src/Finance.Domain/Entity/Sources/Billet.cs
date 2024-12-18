@@ -1,17 +1,12 @@
-﻿using Finance.Domain.Interface;
+﻿using Finance.Domain.Enum;
+using Finance.Domain.SeedWork;
 
 namespace Finance.Domain.Entity
 {
-    public class Billet : SeedWork.Entity, ITransactionSource
+    public class Billet : TransactionSource
     {
-        public string Name { get; set; }
-        public BankAccount BankAccount { get; set; }
-
-        public Billet(string name, BankAccount bankAccount, Guid userId) : base(userId)
+        public Billet(string name, Guid bankAccountId, Guid userId) : base(name, bankAccountId, TransactionSourceType.Billet, userId)
         {
-            Name = name;
-            BankAccount = bankAccount;
-
             Validate();
         }
 

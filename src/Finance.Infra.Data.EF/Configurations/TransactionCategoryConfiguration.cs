@@ -8,6 +8,8 @@ namespace Finance.Infra.Data.EF.Configurations
     {
         public void Configure(EntityTypeBuilder<TransactionCategory> builder)
         {
+            builder.ToTable("TransactionCategory");
+
             builder.HasKey(transactionCategory => transactionCategory.Id);
 
             // Navigation
