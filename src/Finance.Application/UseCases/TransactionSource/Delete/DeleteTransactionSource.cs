@@ -4,23 +4,21 @@ using Finance.Domain.Repository;
 
 namespace Finance.Application.UseCases.TransactionSource
 {
-    public class TransactionSource : ICreateTransactionSource
+    public class DeleteTransactionSource : IDeleteTransactionSource
     {
         private readonly ITransactionSourceRepository _transactionSourceRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public TransactionSource(ITransactionSourceRepository transactionSourceRepository, IUnitOfWork unitOfWork)
+        public DeleteTransactionSource(ITransactionSourceRepository transactionSourceRepository, IUnitOfWork unitOfWork)
         {
             _transactionSourceRepository = transactionSourceRepository;
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<TransactionSourceModelOutput> Handle(CreateTransactionSourceInput input, CancellationToken cancellationToken)
+        public async Task<TransactionSourceModelOutput> Handle(DeleteTransactionSourceInput input, CancellationToken cancellationToken)
         {
-            // TODO: Change initialization to: strategy pattern. Maybe add reflection to use the constructor instead of adding a Create method
-            var transactionSource = new TransactionSourceFactory().Factory(input);
-
-            await _transactionSourceRepository.Insert(transactionSource, cancellationToken);
+            var transactionSource = await _transactionSourceRepository.Get(input.Id, cancellationToken);
+            await _transactionSourceRepository.Delete(transactionSource, cancellationToken);
             await _unitOfWork.Commit(cancellationToken);
 
             return TransactionSourceModelOutput.FromTransactionSource(transactionSource);

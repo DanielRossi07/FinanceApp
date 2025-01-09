@@ -10,6 +10,14 @@ namespace Finance.Domain.Entity
             Validate();
         }
 
+        public override void Update(string name, Guid bankAccountId)
+        {
+            Name = name;
+            BankAccountId = bankAccountId;
+
+            Validate();
+        }
+
         public override void Validate()
         {
             DomainValidation.NotNullOrEmpty(Name, nameof(Name));

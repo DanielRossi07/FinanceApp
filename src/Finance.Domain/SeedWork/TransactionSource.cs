@@ -16,5 +16,7 @@ namespace Finance.Domain.SeedWork
             BankAccountId = bankAccountId;
             Type = type;
         }
+
+        public abstract void Update(string name, Guid bankAccountId);
     }
 }
