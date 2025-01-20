@@ -27,8 +27,8 @@ namespace Finance.Application.UseCases.TransactionSource
             SeedWork.TransactionSource newTransactionSource;
             if (transactionSource.Type != input.Type)
             {
-                newTransactionSource = new TransactionSourceFactory().Factory(input);
-                newTransactionSource.UpdateFromSource(transactionSource);
+                newTransactionSource = new TransactionSourceFactory().Create(input);
+                newTransactionSource.UseIdFromOldSource(transactionSource);
                 await _transactionSourceRepository.Delete(transactionSource, cancellationToken);
                 await _transactionSourceRepository.Insert(newTransactionSource, cancellationToken);
             }

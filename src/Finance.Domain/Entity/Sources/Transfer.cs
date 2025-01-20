@@ -18,10 +18,10 @@ namespace Finance.Domain.Entity
             Validate();
         }
 
-        public override void UpdateFromSource(TransactionSource input)
+        public override void UseIdFromOldSource(TransactionSource input)
         {
             Id = input.Id;
-            Update(input.Name, input.BankAccountId);
+            Validate();
         }
 
         public override void Validate()

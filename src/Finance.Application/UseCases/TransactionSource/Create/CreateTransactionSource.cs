@@ -18,7 +18,7 @@ namespace Finance.Application.UseCases.TransactionSource
         public async Task<TransactionSourceModelOutput> Handle(CreateTransactionSourceInput input, CancellationToken cancellationToken)
         {
             // TODO: Change initialization to: strategy pattern. Maybe add reflection to use the constructor instead of adding a Create method
-            var transactionSource = new TransactionSourceFactory().Factory(input);
+            var transactionSource = new TransactionSourceFactory().Create(input);
 
             await _transactionSourceRepository.Insert(transactionSource, cancellationToken);
             await _unitOfWork.Commit(cancellationToken);
