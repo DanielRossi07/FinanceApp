@@ -11,7 +11,7 @@ namespace Finance.Infra.Data.EF.Configurations
         public void Configure(EntityTypeBuilder<TransactionSource> builder)
         {
             // Map to a single table (Table-per-Hierarchy)
-            builder.ToTable("TransactionSource");
+            builder.ToTable("TransactionSources");
 
             // Configure primary key
             builder.HasKey(ts => ts.Id);
@@ -45,7 +45,8 @@ namespace Finance.Infra.Data.EF.Configurations
                 .HasValue<Transfer>(TransactionSourceType.Transfer)
                 .HasValue<Pix>(TransactionSourceType.Pix)
                 .HasValue<Billet>(TransactionSourceType.Billet)
-                .HasValue<Card>(TransactionSourceType.Card);
+                .HasValue<Card>(TransactionSourceType.Card)
+                .HasValue<Default>(TransactionSourceType.Default);
 
         }
     }

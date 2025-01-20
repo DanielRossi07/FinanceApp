@@ -18,6 +18,12 @@ namespace Finance.Domain.Entity
             Validate();
         }
 
+        public override void UpdateFromSource(TransactionSource input)
+        {
+            Id = input.Id;
+            Update(input.Name, input.BankAccountId);
+        }
+
         public override void Validate()
         {
             DomainValidation.NotNullOrEmpty(Name, nameof(Name));

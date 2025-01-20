@@ -5,14 +5,8 @@ using MediatR;
 
 namespace Finance.Application.UseCases.TransactionSource
 {
-    public class UpdateTransactionSourceInput : IRequest<TransactionSourceModelOutput>
+    public class UpdateTransactionSourceInput : ITransactionSourceFactoryModel, IRequest<TransactionSourceModelOutput>
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public Guid BankAccountId { get; set; }
-        public TransactionSourceType Type { get; set; }
-        public Guid UserId { get; set; }
-        public DateTime UpdatedAt { get; set; }
 
         public UpdateTransactionSourceInput(Guid id, string name, Guid bankAccountId, TransactionSourceType type)
         {

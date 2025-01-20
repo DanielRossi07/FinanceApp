@@ -6,7 +6,7 @@ namespace Finance.Application.UseCases.TransactionSource.Common
 {
     public class TransactionSourceFactory
     {
-        public SeedWork.TransactionSource Factory(CreateTransactionSourceInput input)
+        public SeedWork.TransactionSource Factory(ITransactionSourceFactoryModel input)
         {
             SeedWork.TransactionSource transactionSource;
             switch (input.Type)

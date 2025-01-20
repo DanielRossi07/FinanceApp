@@ -1,5 +1,4 @@
 ﻿using Finance.Application.Exceptions;
-using Finance.Domain.Entity;
 using Finance.Domain.Repository;
 using Finance.Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +19,13 @@ namespace Finance.Infra.Data.EF.Repositories
         {
             await _transactionSources.AddAsync(aggregate, cancellationToken);
         }
+
         public async Task<TransactionSource> Get(Guid id, CancellationToken cancellationToken)
         {
-            var category = await _transactionSources.FindAsync(new object[] { id }, cancellationToken);
-            NotFoundException.ThrowIfNull(category, $"TransactionSource '{id}' not found.");
+            var transactionSource = await _transactionSources.FindAsync(new object[] { id }, cancellationToken);
+            NotFoundException.ThrowIfNull(transactionSource, $"TransactionSource '{id}' not found.");
 
-            return category!;
+            return transactionSource!;
         }
 
         public Task Update(TransactionSource aggregate, CancellationToken cancellationToken)

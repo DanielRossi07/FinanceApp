@@ -21,6 +21,7 @@ namespace Finance.API.Configurations
         {
             services.AddTransient<ITransactionCategoryRepository, TransactionCategoryRepository>();
             services.AddTransient<IBankAccountRepository, BankAccountRepository>();
+            services.AddTransient<ITransactionSourceRepository, TransactionSourceRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }
