@@ -24,10 +24,9 @@ namespace Finance.Application.UseCases.TransactionSource
             // Should I change the way I initialize the TransactionSource? 
             // How to deal with optional properties, how do I know if the user actually removed a property or just did not send the property?
 
-            SeedWork.TransactionSource newTransactionSource;
             if (transactionSource.Type != input.Type)
             {
-                newTransactionSource = new TransactionSourceFactory().Create(input);
+                var newTransactionSource = new TransactionSourceFactory().Create(input);
                 newTransactionSource.UseIdFromOldSource(transactionSource);
                 await _transactionSourceRepository.Delete(transactionSource, cancellationToken);
                 await _transactionSourceRepository.Insert(newTransactionSource, cancellationToken);
@@ -40,7 +39,9 @@ namespace Finance.Application.UseCases.TransactionSource
             
             await _unitOfWork.Commit(cancellationToken);
 
-            return TransactionSourceModelOutput.FromTransactionSource(transactionSource);
+            var updatedTransactionSource = await _transactionSourceRepository.Get(input.Id, cancellationToken);
+
+            return TransactionSourceModelOutput.FromTransactionSource(updatedTransactionSource);
         }
     }
 }
